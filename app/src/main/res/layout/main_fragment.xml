@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.main.MainFragment">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.mohsenoid.myapplication.ui.main.MainViewModel" />
+
+        <variable
+            name="callback"
+            type="com.mohsenoid.myapplication.ui.main.MainViewModel.Callback" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="lifecycleScope" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:layout_margin="8dp"
+            android:src="@{viewModel.a ? @drawable/ic_happy : @drawable/ic_sad}" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="viewLifecycleOwner" />
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:gravity="center"
+            android:layout_margin="8dp"
+            android:src="@{viewModel.b ? @drawable/ic_happy : @drawable/ic_sad}" />
+
+        <Button
+            android:id="@+id/next"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{() -> callback.onNextClick()}"
+            android:layout_margin="8dp"
+            android:text="open the other fragment" />
+
+    </LinearLayout>
+</layout>
